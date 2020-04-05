@@ -1,4 +1,4 @@
-<a href="{{ route('/admin/users/create') }}" class="btn btn-success mt-4 ml-3">Add+ </a>
+<a href="{{ url('/admin/users/create') }}" class="btn btn-success mt-4 ml-3">Add+ </a>
  
 <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -16,17 +16,13 @@
             <td class="v-align-middle">{{$usuario->email}}</td>
             <td class="v-align-middle">{{$usuario->password}}</td>
             <td class="v-align-middle">{{$usuario->rol_id}}</td>
-
- 
-                <form action="{{ route('admin/users/delete',$users->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return deleteConfirm()">
- 
+            <td class="v-align-middle">
+                <form action="{{ route('admin/users/delete',$usuario->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return deleteConfirm()">
                     <input type="hidden" name="_method" value="PUT">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <a href="{{ route('/admin/users/update',$users->id) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('admin/users/edit', $usuario->id) }}" class="btn btn-primary">Edit</a>
                     <button type="submit" class="btn btn-danger">Delete</button>
- 
                 </form>
- 
             </td>
         </tr>
         @endforeach

@@ -1,4 +1,4 @@
-@if ( !empty ( $users->id) ) <!-- //userLibrary o variable q venga del controller?  -->
+@if ( !empty ( $users->id) ) <!-- //  -->
  
  <!-- FORM FOR UPDATE   -->
  <div class="form-group">
@@ -18,14 +18,14 @@
  <div class="form-group">
 	 <label for="password" class="negrita">Password:</label> 
 	 <div>
-		 <input class="form-control" placeholder="*****" required="required" name="password" type="text" id="password" value="{{ $users->password }}"> 
+		 <input class="form-control" placeholder="*****" required="required" name="password" type="password" id="password" value="{{ $users->password }}"> 
 	 </div>
  </div>
  
  <div class="form-group">
 	 <label for="rol" class="negrita">Rol:</label> 
 	 <div>
-		 <input class="form-control" placeholder="user" required="required" name="rol_id" type="text" id="rol_id" value="{{ $users->rols }}"> 
+		 <input class="form-control" placeholder="user" required="required" name="rol_id" type="text" id="rol_id" value="{{ $users->rol_id }}"> 
 	 </div>
  </div>
  
@@ -51,7 +51,7 @@
  <div class="form-group">
 	 <label for="password" class="negrita">Password:</label> 
 	 <div>
-	 	<input class="form-control" placeholder="*****" required="required" name="password" type="text" id="password"> 
+	 	<input class="form-control" placeholder="*****" required="required" name="password" type="password" id="password"> 
 	 </div>
  </div>
  
@@ -66,4 +66,4 @@
 @endif
 
 <button type="submit" class="btn btn-info">Save</button>
-<a href="{{ route('/admin/users') }}" class="btn btn-warning">Cancel</a>
+<a href="{{ url('/admin/users') }}" class="btn btn-warning">Cancel</a>

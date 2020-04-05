@@ -49,7 +49,7 @@ class UserController extends Controller
 	    // Recibo todos los datos del formulario de la vista 'crear.blade.php'
 	    $users->name = $request->name;
 	    $users->email = $request->email;
-	    $users->password = $request->password;
+	    $users->password = bcrypt($request->password);
 	    $users->rol_id = $request->rol_id;
 	    
 	    // Almacenos la imagen en la carpeta publica especifica, esto lo veremos más adelante 
@@ -68,23 +68,27 @@ class UserController extends Controller
 
 	//  Actualizar un registro (Update)
  
-	public function update($id)
+	public function edit($id)
 	{
 	    $users = UserLibrary::find($id);
-	    return view('admin/users/update',['users'=>$users]);
+	    return view('admin/users.update',['users'=>$users]);
 	}
 
 
 
 	// Proceso de Actualización de un Registro (Update)
  
-	public function updatee(ItemUpdateRequest $request, $id)
+	public function update(ItemUpdateRequest $request, $id)
 	{        
-	    // Recibo todos los datos desde el formulario Actualizar
-	    $users = Jugos::find($id);
-	    $users->nombre = $request->nombre;
-	    $users->precio = $request->precio;
-	    $users->stock = $request->stock;
+	   //DEVUELVE TODO LO SOLICITADO, METODO MATI PARA PROBAR
+	   // return $request->all();
+
+		// Recibo todos los datos desde el formulario Actualizar
+	    $users = UserLibrary::find($id);
+	    $users->name = $request->name;
+		$users->email = $request->email;
+	    $users->password = bcrypt($request->password);
+	    $users->rol_id = $request->rol_id;
 	 
 	    // Recibo la imagen desde el formulario Actualizar
 	  /*  if ($request->hasFile('img')) {
@@ -112,7 +116,8 @@ class UserController extends Controller
 	   // Storage::delete($imagen);
 	        
 	    // Elimino el registro de la tabla 'jugos' 
-	    UserLibrary::destroy($id);
+	    $users->delete();
+
 	        
 	    // Muestro un mensaje y redirecciono a la vista principal 
 	    Session::flash('message', 'Deleted with Succes !');

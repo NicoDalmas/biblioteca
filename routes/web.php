@@ -18,19 +18,22 @@ Route::get('/', function () {
  
 // Ruta Dashboard
 //Route::get('admin/dashboard', 'Dashboard@index')->name('admin/dashboard');
- 
-/* Leer */
-Route::get('admin/users', 'UserController@index')->name('admin/users');
 
-// Rutas CRUD
+// Rutas CRUD 
+
+/* Leer */
+Route::get('admin/users', 'UserController@index')->name('admin/users/index');
+
+
 /* Crear */
 Route::get('admin/users/create', 'UserController@create')->name('admin/users/create');
 Route::put('admin/users/store', 'UserController@store')->name('admin/users/store');
  
  
 /* Actualizar */
-Route::get('admin/users/actualizar/{id}', 'UserController@actualizar')->name('admin/users/actualizar');
+Route::get('admin/users/edit/{id}', 'UserController@edit')->name('admin/users/edit');
 Route::put('admin/users/update/{id}', 'UserController@update')->name('admin/users/update');
+
  
 /* Eliminar */
-Route::put('admin/users/delete/{id}', 'UserController@eliminar')->name('admin/users/eliminar');
+Route::put('admin/users/delete/{id}', 'UserController@delete')->name('admin/users/delete');
