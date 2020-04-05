@@ -3,15 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
-    
-	// Instancio la tabla 'jugos' 
+	use SoftDeletes;
+
     protected $table = 'books';
+
+    protected $primaryKey = 'id';    
     
-    // Declaro los campos que usaré de la tabla 'jugos' 
-    protected $fillable = [ 'name', 'author', 'subject', 'date', 'description', 'image'];
-
-
+    protected $fillable = [ 'name', 'author', 'subject', 'date', 'description'];
 }

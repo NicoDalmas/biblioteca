@@ -19,7 +19,4 @@ class UserLibrary extends Model
     // Declaro los campos que usaré de la tabla 'jugos' 
     protected $fillable = ['name', 'email', 'password', 'rol_id'];
 
-
-
-
 }

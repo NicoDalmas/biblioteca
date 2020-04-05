@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\UserLibrary;
 use Session;
@@ -18,7 +17,6 @@ use Storage;
  
 class UserController extends Controller
 {
-
 	// Leer Registros (Read) 
  
 	public function index()
@@ -27,8 +25,6 @@ class UserController extends Controller
 	    return view('admin.users.index', compact('users')); 
 	}
 
-
-
 	// Crear un Registro (Create) 
 	 
 	public function create()
@@ -36,8 +32,6 @@ class UserController extends Controller
 	    $users = UserLibrary::all();
 	    return view('admin.users.create', compact('users'));
 	}
-
-
 
 	// Proceso de Creación de un Registro 
 	 
@@ -62,10 +56,6 @@ class UserController extends Controller
 	    return redirect('/admin/users')->with('message','Saved with Succes!');
 	}
 
-
-
-
-
 	//  Actualizar un registro (Update)
  
 	public function edit($id)
@@ -73,8 +63,6 @@ class UserController extends Controller
 	    $users = UserLibrary::find($id);
 	    return view('admin/users.update',['users'=>$users]);
 	}
-
-
 
 	// Proceso de Actualización de un Registro (Update)
  
@@ -118,12 +106,9 @@ class UserController extends Controller
 	    // Elimino el registro de la tabla 'jugos' 
 	    $users->delete();
 
-	        
 	    // Muestro un mensaje y redirecciono a la vista principal 
 	    Session::flash('message', 'Deleted with Succes !');
 	    return Redirect::to('admin/users');
 	}
-
-
 	
 }

@@ -19,21 +19,26 @@ Route::get('/', function () {
 // Ruta Dashboard
 //Route::get('admin/dashboard', 'Dashboard@index')->name('admin/dashboard');
 
-// Rutas CRUD 
-
+// USERS CRUD 
 /* Leer */
 Route::get('admin/users', 'UserController@index')->name('admin/users/index');
-
-
 /* Crear */
 Route::get('admin/users/create', 'UserController@create')->name('admin/users/create');
 Route::put('admin/users/store', 'UserController@store')->name('admin/users/store');
- 
- 
 /* Actualizar */
 Route::get('admin/users/edit/{id}', 'UserController@edit')->name('admin/users/edit');
 Route::put('admin/users/update/{id}', 'UserController@update')->name('admin/users/update');
-
- 
 /* Eliminar */
 Route::put('admin/users/delete/{id}', 'UserController@delete')->name('admin/users/delete');
+
+
+// BOOKS CRUD
+Route::get('books', 'BookController@index')->name('books/index');
+/* Crear */
+Route::get('books/create', 'BookController@create')->name('books/create');
+Route::put('books/store', 'BookController@store')->name('books/store');
+/* Actualizar */
+Route::get('books/edit/{id}', 'BookController@edit')->name('books/edit');
+Route::put('books/update/{id}', 'BookController@update')->name('books/update');
+/* Eliminar */
+Route::put('books/delete/{id}', 'BookController@delete')->name('books/delete');
