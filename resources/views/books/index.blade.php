@@ -8,6 +8,8 @@
             <th>Author</th>
             <th>Subject</th>
             <th>Date</th>
+            <th>Image</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +20,7 @@
             <td class="v-align-middle">{{$book->author}}</td>
             <td class="v-align-middle">{{$book->subject}}</td>
             <td class="v-align-middle">{{$book->date}}</td>
+            <td class="v-align-middle">{{$book->image}}</td>
             <td class="v-align-middle">
                 <form action="{{ route('books/delete',$book->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return deleteConfirm()">
                     <input type="hidden" name="_method" value="PUT">
@@ -31,14 +34,14 @@
     </tbody>
 </table>
 
-
 <script type="text/javascript">
-        function deleteConfirm()
-        {
+    function deleteConfirm()
+    {
         var x = confirm("Are you sure to Delete this?");
+       
         if (x)
-          return true;
+            return true;
         else
-          return false;
-        }
-    </script>
+            return false;
+    }
+</script>

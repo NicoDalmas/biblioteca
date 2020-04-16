@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rol extends Model
 {
-        // Instancio la tabla 'jugos' 
     protected $table = 'rols';
-    
-    // Declaro los campos que usaré de la tabla 'jugos' 
-    protected $fillable = [ 'id', 'name'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['name'];
+
+    public function users(){
+        return $this->belongsTo('App\Rol');
+    }
 }

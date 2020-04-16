@@ -3,14 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Movement extends Model
 {
-    
-	// Instancio la tabla 'jugos' 
+    use SoftDeletes;
+
     protected $table = 'movements';
-    
-    // Declaro los campos que usaré de la tabla 'jugos' 
-    protected $fillable = [ 'user_id', 'book_id', 'state'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['user_id', 'book_id', 'state', 'created_at'];
+
+    public function users(){
+        return $this->belongsToMany('App\UserLibrary');
+    }
+
+    public function books(){
+        return $this->belongsToMany('App\Book');
+    }
 
 }

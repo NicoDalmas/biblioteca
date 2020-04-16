@@ -33,6 +33,7 @@ Route::put('admin/users/delete/{id}', 'UserController@delete')->name('admin/user
 
 
 // BOOKS CRUD
+/* Leer */
 Route::get('books', 'BookController@index')->name('books/index');
 /* Crear */
 Route::get('books/create', 'BookController@create')->name('books/create');
@@ -41,4 +42,17 @@ Route::put('books/store', 'BookController@store')->name('books/store');
 Route::get('books/edit/{id}', 'BookController@edit')->name('books/edit');
 Route::put('books/update/{id}', 'BookController@update')->name('books/update');
 /* Eliminar */
-Route::put('books/delete/{id}', 'BookController@delete')->name('books/delete');
+Route::put('books/delete/{id}', 'BookController@destroy')->name('books/delete');
+
+
+// MOVEMENTS CRUD
+/* Leer */
+Route::get('movements', 'MovementController@index')->name('movements/index');
+/* Crear */
+Route::get('movements/create', 'MovementController@create')->name('movements/create');
+Route::put('movements/store', 'MovementController@store')->name('movements/store');
+/* Actualizar */
+Route::get('movements/edit/{movements}', 'MovementController@edit')->name('movements/edit');
+Route::put('movements/update/{id}', 'MovementController@update')->name('movements/update');
+/* Eliminar */
+Route::put('movements/delete/{id}', 'MovementController@destroy')->name('movements/delete');

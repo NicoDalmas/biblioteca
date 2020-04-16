@@ -3,15 +3,18 @@
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Password</th>
             <th>Rol</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         @foreach($users as $usuario)
         <tr>
+            <td class="v-align-middle">{{$usuario->id}}</td>
             <td class="v-align-middle">{{$usuario->name}}</td>
             <td class="v-align-middle">{{$usuario->email}}</td>
             <td class="v-align-middle">{{$usuario->password}}</td>

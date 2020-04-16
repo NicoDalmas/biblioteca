@@ -52,6 +52,7 @@ class BookController extends Controller
         $books->subject = $request->subject;
         $books->date = $request->date;
         $books->description = $request->description;
+        $books->image = $request->file('image')->store('/');
  
         $books->save();
      
@@ -98,6 +99,9 @@ class BookController extends Controller
         $books->subject = $request->subject;
         $books->date = $request->date;
         $books->description = $request->description;
+        if ($request->hasFile('image')) {
+            $books->image = $request->file('image')->store('/');
+        }
 
         $books->save();
 
@@ -113,6 +117,10 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
+        $books = Book::find($id);
+        $image = $books->image;
+        Storage::delete($image);
+
         $books->delete();
 
         Session::flash('message', 'Deleted with Succes !');

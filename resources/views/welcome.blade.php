@@ -82,7 +82,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <small>Proyecto Biblioteca</small>
+                    <small>Library Project</small>
                 </div>
 
                 <div class="links">
