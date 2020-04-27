@@ -32,6 +32,32 @@ Route::put('admin/users/update/{id}', 'UserController@update')->name('admin/user
 Route::put('admin/users/delete/{id}', 'UserController@delete')->name('admin/users/delete');
 
 
+// ROLE CRUD 
+/* Leer */
+Route::get('admin/roles', 'RolController@index')->name('admin/roles/index');
+/* Crear */
+Route::get('admin/roles/create', 'RolController@create')->name('admin/roles/create');
+Route::put('admin/roles/store', 'RolController@store')->name('admin/roles/store');
+/* Actualizar */
+Route::get('admin/roles/edit/{id}', 'RolController@edit')->name('admin/roles/edit');
+Route::put('admin/roles/update/{id}', 'RolController@update')->name('admin/roles/update');
+/* Eliminar */
+Route::put('admin/roles/delete/{id}', 'RolController@delete')->name('admin/roles/delete');
+
+
+// Permission CRUD 
+/* Leer */
+Route::get('admin/permissions', 'PermissionController@index')->name('admin/permissions/index');
+/* Crear */
+Route::get('admin/permissions/create', 'PermissionController@create')->name('admin/permissions/create');
+Route::put('admin/permissions/store', 'PermissionController@store')->name('admin/permissions/store');
+/* Actualizar */
+Route::get('admin/permissions/edit/{id}', 'PermissionController@edit')->name('admin/permissions/edit');
+Route::put('admin/permissions/update/{id}', 'PermissionController@update')->name('admin/permissions/update');
+/* Eliminar */
+Route::put('admin/permissions/delete/{id}', 'PermissionController@delete')->name('admin/permissions/delete');
+
+
 // BOOKS CRUD
 /* Leer */
 Route::get('books', 'BookController@index')->name('books/index');
@@ -56,3 +82,14 @@ Route::get('movements/edit/{movements}', 'MovementController@edit')->name('movem
 Route::put('movements/update/{id}', 'MovementController@update')->name('movements/update');
 /* Eliminar */
 Route::put('movements/delete/{id}', 'MovementController@destroy')->name('movements/delete');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//prueba de permiso y roles
+/*
+Route::group(['middleware' => ['permission:destroy_notes']], function () {
+    Route::get('notes/{id}/destroy', 'NotesController@destroy')->name('notes.destroy');
+});
+*/

@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Permission\Traits\HasRoles; // para usar permisos/roles
+
 
 //MODELO TEMPORAL, LUEGO HAY QUE MIGRARLO AL MODELO USER
 class UserLibrary extends Model
 {
+    use HasRoles;
     use SoftDeletes;
  
     protected $table = 'users';
